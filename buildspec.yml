@@ -4,8 +4,7 @@ phases:
   install:
     commands:
 
-      - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-      - apt-get install -y nodejs 
+      
       # Install dependencies needed for running tests
       - npm install
 
