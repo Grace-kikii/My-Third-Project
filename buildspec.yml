@@ -3,15 +3,16 @@ version: 0.2
 phases:
   install:
     commands:
-
+      # Update the nodejs version to the latest
       -  npm cache clean -f
       -  npm install -g n
       -  n stable
       -  n latest
       # Install dependencies needed for running tests
       - npm install
-
+      # Install Angular CLI
       - npm install -g @angular/cli
+      - npm install --save-dev @angular-devkit/build-angular
 
       # Upgrade AWS CLI to the latest version
       - pip install --upgrade awscli    
