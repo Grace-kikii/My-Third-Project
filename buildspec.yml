@@ -4,7 +4,10 @@ phases:
   install:
     commands:
 
-      
+      -  npm cache clean -f
+      -  npm install -g n
+      -  n stable
+      -  n latest
       # Install dependencies needed for running tests
       - npm install
 
