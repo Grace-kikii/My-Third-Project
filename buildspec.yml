@@ -4,10 +4,10 @@ phases:
   install:
     commands:
       # Update the nodejs version to the latest
-      -  npm cache clean -f
-      -  npm install -g n
-      -  n stable
-      -  n latest
+      - npm cache clean -f
+      - npm install -g n
+      - n stable
+      - n latest
       # Install dependencies needed for running tests
       - npm install
       # Install Angular CLI
@@ -26,7 +26,7 @@ phases:
       - aws s3 cp --recursive public/ s3://$WEBSITE_S3_BUCKET/public/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
       #- sed -i -e "s|assets/|$WEBSITE_S3_PREFIX/public/assets/|g" public/index.html
       - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
-      - ng build 
+      - ng build --baseHref=./
   post_build:
     commands:
       - aws s3 cp --recursive dist/AngularDemo/ s3://$WEBSITE_S3_BUCKET/AngularDemo/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
